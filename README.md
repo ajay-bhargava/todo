@@ -52,12 +52,3 @@ v5/
 │   └── backend/     # Convex backend functions and schema
 
 ```
-
-## Available Scripts
-
-- `bun dev`: Start all applications in development mode
-- `bun build`: Build all applications
-- `bun dev:web`: Start only the web application
-- `bun dev:setup`: Setup and configure your Convex project
-- `bun check-types`: Check TypeScript types across all apps
-- `bun check`: Run Biome formatting and linting
