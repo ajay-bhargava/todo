@@ -20,6 +20,11 @@
 		"setup": {
 			"cache": false,
 			"persistent": true
+		},
+		"shadcn": {
+			"cache": false,
+			"persistent": true,
+			"dependsOn": ["^shadcn"]
 		}
 	}
 }
