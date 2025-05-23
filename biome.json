@@ -21,7 +21,8 @@
 	},
 	"formatter": {
 		"enabled": true,
-		"indentStyle": "tab"
+		"indentStyle": "tab",
+		"ignore": ["convex/_generated/**/*"]
 	},
 	"organizeImports": {
 		"enabled": true
