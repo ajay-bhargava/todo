@@ -5,7 +5,7 @@
 	"tasks": {
 		"build": {
 			"dependsOn": ["^build"],
-			"inputs": ["$TURBO_DEFAULT$", ".env*"],
+			"inputs": ["$TURBO_DEFAULT$", ".env*", "CONVEX_DEPLOY_KEY"],
 			"outputs": ["dist/**", ".next/**", "!.next/cache/**"]
 		},
 		"lint": {
