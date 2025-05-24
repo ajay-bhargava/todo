@@ -14,6 +14,7 @@ import type {
   FunctionReference,
 } from "convex/server";
 import type * as healthCheck from "../healthCheck.js";
+import type * as todo from "../todo.js";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -25,6 +26,7 @@ import type * as healthCheck from "../healthCheck.js";
  */
 declare const fullApi: ApiFromModules<{
   healthCheck: typeof healthCheck;
+  todo: typeof todo;
 }>;
 export declare const api: FilterApi<
   typeof fullApi,

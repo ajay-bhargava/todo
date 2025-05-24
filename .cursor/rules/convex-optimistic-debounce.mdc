@@ -1,0 +1,60 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Rule Name: convex-optimistic-debounce
+
+## Description
+Guidelines for using debouncing and optimistic UI updates with Convex routes, especially in websocket-driven UIs.
+
+---
+
+## Convex Optimistic UI & Debounce Rules
+
+### 1. Optimistic UI Updates
+- Always update local UI state immediately in response to user actions (e.g., marking a todo as completed, editing text) before awaiting the result of a Convex mutation.
+- Use local state (e.g., React's `useState`) to reflect changes instantly, providing a responsive user experience.
+- After the mutation completes, reconcile the local state with the server state if needed (e.g., reset optimistic state on error or after successful fetch).
+
+### 2. Debouncing Convex Mutations
+- For any user input that can trigger frequent updates (e.g., typing in a todo, toggling completion), wrap Convex mutation calls in a debounced function.
+- Use a custom `useDebouncedCallback` hook or similar utility to ensure that rapid user actions do not result in excessive network requests.
+- The debounce delay should be tuned for the UX (e.g., 300–500ms for text input, shorter for toggles).
+
+### 3. Pure Functions & Stable References
+- Prefer pure, stable callback functions for debounced handlers to avoid unnecessary re-renders and to ensure correct closure behavior.
+- Avoid using mutable refs or hash maps for tracking pending updates unless absolutely necessary; local state and debounced callbacks should suffice for most cases.
+
+### 4. Convex Websocket Model
+- Convex uses websockets for real-time updates. Optimistic UI and debounced mutations work well with this model, as server state will be pushed to the client when it changes.
+- Do not block UI updates on server round-trips; trust the websocket to eventually synchronize state.
+
+### 5. Visual Feedback for Optimistic State
+- When applying optimistic updates (e.g., marking a todo as completed), visually indicate the change immediately (e.g., strike-through, dim text).
+- Use conditional class names or styles based on local optimistic state, not just server state.
+
+### 6. Error Handling
+- If a Convex mutation fails, revert the optimistic update and notify the user as appropriate.
+- Keep error handling logic close to the mutation call for clarity.
+
+### 7. Example Pattern
+```tsx
+// Pseudocode for a debounced, optimistic update pattern
+const [optimisticState, setOptimisticState] = useState(...);
+const mutation = useMutation(api.someMutation);
+
+const debouncedMutation = useDebouncedCallback((args) => {
+  mutation(args);
+}, 500);
+
+const handleUserAction = (args) => {
+  setOptimisticState(...); // update UI immediately
+  debouncedMutation(args); // send to server after debounce
+};
+```
+
+---
+
+**Summary:**  
+When building with Convex, always prefer optimistic UI updates and debounce mutation calls for user-driven, high-frequency actions. This approach leverages Convex's websocket model for real-time sync and ensures a fast, responsive user experience.
