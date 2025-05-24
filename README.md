@@ -42,6 +42,10 @@ bun dev
 
 Open [http://localhost:3001](http://localhost:3001) in your browser to see the web application. Your app will connect to the Convex cloud backend automatically provided you have the `CONVEX_URL` and `CONVEX_TOKEN` environment variables set.
 
+## Production
+
+
+
 ## Project Structure
 
 ```
@@ -62,3 +66,4 @@ todo/
         └── convex
             └── _generated
 ```
+
