@@ -32,7 +32,7 @@ This project uses Convex as a backend. You'll need to set up Convex before runni
 bun dev:setup
 ```
 
-Follow the prompts to create a new Convex project and connect it to your application. Once you have the `CONVEX_URL` set `.env.local` in your application directory (e.g. `apps/web/.env.local`). 
+Follow the prompts to create a new Convex project and connect it to your application. Once you have the `CONVEX_URL` set `.env.local` in your application directory (e.g. `apps/web/.env.local`) per the example in the `apps/web/.env.example` file.
 
 ## Development
 
@@ -48,7 +48,7 @@ Open [http://localhost:3001](http://localhost:3001) in your browser to see the w
 > In Vercel, you need to specify custom build instructions to build the web application.
 
 ```bash
-cd ../../packages/backend && npx convex deploy --cmd 'cd ../../apps/app && turbo run build' --cmd-url-env-var-name NEXT_PUBLIC_CONVEX_URL
+cd ../../packages/backend && npx convex deploy --cmd 'cd ../../apps/web && turbo run build' --cmd-url-env-var-name NEXT_PUBLIC_CONVEX_URL
 ```
 
 ![Vercel Build Instructions](./docs/img/build_instructions.png)

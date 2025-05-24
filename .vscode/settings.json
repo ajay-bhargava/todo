@@ -2,7 +2,7 @@
     "[typescript]": {
         "editor.defaultFormatter": "biomejs.biome"
     },
-    "explorer.excludeGitIgnore": true,
+    "explorer.excludeGitIgnore": false,
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
         "source.fixAll.biome": "explicit"
