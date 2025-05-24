@@ -32,7 +32,7 @@ This project uses Convex as a backend. You'll need to set up Convex before runni
 bun dev:setup
 ```
 
-Follow the prompts to create a new Convex project and connect it to your application.
+Follow the prompts to create a new Convex project and connect it to your application. Once you have the `CONVEX_URL` set `.env.local` in your application directory (e.g. `apps/web/.env.local`). 
 
 ## Development
 
