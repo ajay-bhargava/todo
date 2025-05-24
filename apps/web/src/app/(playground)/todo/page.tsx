@@ -1,14 +1,14 @@
 "use client";
 
-import { api } from "@v5/backend/convex/_generated/api.js";
-import { useMutation, useQuery } from "convex/react";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Check, Trash2 } from "lucide-react";
-import type { Id } from "@v5/backend/convex/_generated/dataModel.js";
 import { useDebouncedCallback } from "@/functions/debouncedCallback";
-import { useRef, useState, useEffect } from "react";
+import { api } from "@v5/backend/convex/_generated/api.js";
+import type { Id } from "@v5/backend/convex/_generated/dataModel.js";
+import { useMutation, useQuery } from "convex/react";
+import { Check, Trash2 } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 export default function ToDo() {
 	const todos = useQuery(api.todo.getAllTodos);
@@ -69,19 +69,19 @@ export default function ToDo() {
 	}, [todos]);
 
 	return (
-		<div className="flex w-full flex-col items-center">
-			<Card className="mx-auto w-full max-w-sm">
+		<div className="flex min-h-screen w-full items-center justify-center">
+			<Card className="w-full max-w-sm">
 				<CardHeader>
 					<CardTitle>To Do List</CardTitle>
 				</CardHeader>
 				<CardContent>
-					<div className="flex w-full flex-col gap-4">
+					<div className="flex w-full flex-col gap-2">
 						{todos?.map((todo) => {
 							const completed = optimisticCompleted[todo._id] ?? todo.completed;
 							return (
 								<div
 									key={todo._id}
-									className="mx-auto flex w-full max-w-xs items-center justify-between gap-4 bg-muted px-4 py-3 shadow-sm"
+									className="mx-auto flex w-full max-w-xs items-center justify-between gap-2 bg-muted px-4 py-2 shadow-sm"
 								>
 									<div className="flex min-w-0 flex-1 items-center gap-3">
 										<span
