@@ -44,7 +44,7 @@ Open [http://localhost:3001](http://localhost:3001) in your browser to see the w
 
 ## Production
 
-> [!IMPORTANT] Build Instructions
+> [!NOTE]
 > In Vercel, you need to specify custom build instructions to build the web application.
 
 ```bash
@@ -55,8 +55,9 @@ cd ../../packages/backend && npx convex deploy --cmd 'cd ../../apps/app && turbo
 
 You also need to specify the `CONVEX_DEPLOY_KEY` environment variable in Vercel.
 
-> [!IMPORTANT] Convex Deploy Key
+> [!NOTE]
 > The `CONVEX_DEPLOY_KEY` is a secret key that is used to deploy the web application without needing to enter the password to authenticate to Convex. You can get it from the Convex dashboard.
+
 
 ![Vercel Environment Variables](./docs/img/deploy_instructions.png)
 
