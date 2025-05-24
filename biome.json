@@ -22,7 +22,7 @@
 	"formatter": {
 		"enabled": true,
 		"indentStyle": "tab",
-		"ignore": ["convex/_generated/**/*"]
+		"ignore": ["convex/_generated/**/*", "node_modules/**/*", "dist/**/*"]
 	},
 	"organizeImports": {
 		"enabled": true
